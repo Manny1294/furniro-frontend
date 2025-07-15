@@ -1,0 +1,40 @@
+.home-view__range-header {
+  font-size: 24px;
+  font-weight: bold;
+}
+.home-view__text {
+  font-size: 18px;
+  margin-block-start: 10px;
+  margin-block-end: 20px;
+  font-weight: bold;
+}
+
+/* Add hover effect on images */
+.home-view__image-wrapper img.img-fluid {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.home-view__image-wrapper img.img-fluid:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+.home-view__image-wrapper {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .home-view__range-header {
+    font-size: 32px;
+  }
+
+  .home-view__range-text {
+    font-size: 20px;
+  }
+  .home-view__text {
+    font-size: 24px;
+  }
+}
