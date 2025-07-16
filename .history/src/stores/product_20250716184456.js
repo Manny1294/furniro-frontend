@@ -24,7 +24,7 @@ export const useProductStore = defineStore('product', () => {
     try {
       // Make API request
       // const response = await fetch(`${API_BASE_URL}/products`)  // backend
-      const response = await fetch('https://fakestoreapi.com/products')
+      const response = await fetch (https://fakestoreapi.com/products)
 
       // Convert response to JSON
       const data = await response.json()
@@ -51,8 +51,7 @@ export const useProductStore = defineStore('product', () => {
   async function fetchProductById(id) {
     loading.value = true
     try {
-      // const response = await fetch(`${API_BASE_URL}/products/${id}`)
-      const response = await fetch(`https://fakestoreapi.com/products/${id}`)
+      const response = await fetch(`${API_BASE_URL}/products/${id}`)
       const item = await response.json()
       product.value = {
         id: item.id,
