@@ -24,8 +24,11 @@ export const useProductStore = defineStore('product', () => {
     loading.value = true
     try {
       // Make API request
-      const response = await axios.get(`${API_BASE_URL}/products`) // fakeAPI
-      const data = response.data
+      const response = await axios.get(`${API_BASE_URL}/products`) // backend
+      // const response = await fetch('https://fakestoreapi.com/products')
+
+      // Convert response to JSON
+      const data = await response.json()
       // Map API data to match our model
       products.value = data.map((item) => ({
         id: item.id,
@@ -37,7 +40,7 @@ export const useProductStore = defineStore('product', () => {
       }))
     } catch (error) {
       // Log any errors (e.g., network issues)
-      console.error('Axios fetch error:', error)
+      console.error('Fetch error:', error)
     } finally {
       // Set loading to false after fetching (success or fail)
       loading.value = false
@@ -45,11 +48,13 @@ export const useProductStore = defineStore('product', () => {
   }
 
   // Fetch single product by id
+
   async function fetchProductById(id) {
     loading.value = true
     try {
-      const response = await axios.get(`${API_BASE_URL}/products/${id}`)
-      const item = response.data
+      const response = await fetch(`${API_BASE_URL}/products/${id}`)
+      // const response = await fetch(`https://fakestoreapi.com/products/${id}`)
+      const item = await response.json()
       product.value = {
         id: item.id,
         title: item.title,
@@ -63,7 +68,7 @@ export const useProductStore = defineStore('product', () => {
         },
       }
     } catch (err) {
-      console.log('Axios fetch error:', err)
+      console.log('Fetch error:', err)
       product.value = null
     } finally {
       loading.value = false
