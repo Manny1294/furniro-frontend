@@ -122,12 +122,19 @@ function checkout() {
     min-width: 600px;
     background: #f9f1e7;
 
-    th,
-    td {
-      vertical-align: middle;
-      max-width: 200px;
+    thead {
+      color: blue;
     }
-  }
+
+  //   th,
+  //   td {
+  //     vertical-align: middle;
+  //     max-width: 200px;
+  //     white-space: nowrap;
+  //     overflow: hidden;
+  //     text-overflow: ellipsis;
+  //   }
+  // }
 
   &__product-info {
     display: flex;
@@ -146,8 +153,8 @@ function checkout() {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-
-      max-width: 200px;
+      font-size: 14px;
+      max-width: 200px; // Adjust based on layout
     }
   }
 

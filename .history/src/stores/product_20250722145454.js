@@ -75,7 +75,7 @@
 
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import productsData from '@/data/StaticProducts.json'
+import productsData from '@/products.json' // Adjust path as needed
 
 export const useProductStore = defineStore('product', () => {
   const products = ref([])

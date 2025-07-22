@@ -122,6 +122,10 @@ function checkout() {
     min-width: 600px;
     background: #f9f1e7;
 
+    thead {
+      color: blue;
+    }
+
     th,
     td {
       vertical-align: middle;
@@ -146,7 +150,7 @@ function checkout() {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-
+      font-size: 14px;
       max-width: 200px;
     }
   }

@@ -68,7 +68,7 @@ function decreaseQuantity() {
         <BCard class="product-details__card">
           <BCardTitle>{{ product.title }}</BCardTitle>
           <BCardText>
-            <p class="product-details__price fs-3">₦ {{ product.price.toLocaleString() }}</p>
+            <p class="product-details__price fs-3">₦ {{ product.price. }}</p>
             <p class="product-details__rating fs-4">
               <span class="product-details__stars">★★★★</span> | {{ product.rating.count }} Reviews
             </p>

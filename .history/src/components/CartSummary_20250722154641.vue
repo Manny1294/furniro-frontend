@@ -25,7 +25,6 @@ function checkout() {
       <!-- Scrollable Table -->
       <div class="cart__table-scroll">
         <table class="cart__table table table-borderless">
-          <!-- table headers -->
           <thead>
             <tr>
               <th>Product</th>
@@ -35,7 +34,6 @@ function checkout() {
               <th></th>
             </tr>
           </thead>
-
           <tbody>
             <tr v-for="item in cart.cartItems" :key="item.id">
               <td @click="goToProduct(item.id)" style="cursor: pointer">
@@ -122,11 +120,18 @@ function checkout() {
     min-width: 600px;
     background: #f9f1e7;
 
-    th,
-    td {
-      vertical-align: middle;
-      max-width: 200px;
+    thead {
+      color: blue;
     }
+
+    // th,
+    // td {
+    //   vertical-align: middle;
+    //   max-width: 200px;
+    //   white-space: nowrap;
+    //   overflow: hidden;
+    //   text-overflow: ellipsis;
+    // }
   }
 
   &__product-info {
@@ -140,14 +145,6 @@ function checkout() {
       width: 40px;
       height: 40px;
       object-fit: contain;
-    }
-    span {
-      display: block;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-
-      max-width: 200px;
     }
   }
 

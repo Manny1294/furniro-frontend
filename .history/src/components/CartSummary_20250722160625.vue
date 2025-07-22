@@ -122,10 +122,14 @@ function checkout() {
     min-width: 600px;
     background: #f9f1e7;
 
+    thead {
+      color: blue;
+    }
+
     th,
     td {
       vertical-align: middle;
-      max-width: 200px;
+      // max-width: 200px;
     }
   }
 

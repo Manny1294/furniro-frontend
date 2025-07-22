@@ -125,7 +125,7 @@ function checkout() {
     th,
     td {
       vertical-align: middle;
-      max-width: 200px;
+      // max-width: 200px;
     }
   }
 

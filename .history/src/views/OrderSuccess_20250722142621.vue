@@ -39,7 +39,7 @@ onMounted(async () => {
     // Simulate a short delay for realism
     await new Promise((resolve) => setTimeout(resolve, 1500))
 
-    // store the order locally
+    // Optionally store the order locally
     localStorage.setItem('lastOrder', JSON.stringify(orderData))
 
     cart.clearCart()

@@ -32,7 +32,7 @@ function checkout() {
               <th>Price</th>
               <th>Quantity</th>
               <th>Subtotal</th>
-              <th></th>
+              <th>Hello</th>
             </tr>
           </thead>
 

@@ -122,10 +122,17 @@ function checkout() {
     min-width: 600px;
     background: #f9f1e7;
 
+    thead {
+      color: blue;
+    }
+
     th,
     td {
       vertical-align: middle;
       max-width: 200px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 
@@ -141,14 +148,14 @@ function checkout() {
       height: 40px;
       object-fit: contain;
     }
-    span {
-      display: block;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-
-      max-width: 200px;
-    }
+    // span {
+    //   display: block;
+    //   overflow: hidden;
+    //   text-overflow: ellipsis;
+    //   white-space: nowrap;
+    //   font-size: 14px;
+    //   max-width: 180px; // Adjust based on layout
+    // }
   }
 
   &__qty-input {
