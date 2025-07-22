@@ -29,19 +29,14 @@ onMounted(async () => {
   }
 
   try {
-    // const res = await fetch('http://localhost:5000/api/orders', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(orderData),
-    // })
-    // if (!res.ok) throw new Error('Failed to place order')
+    const res = await fetch(`http://localhost:5000/orders`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(orderData),
+    })
 
-    // Simulate a short delay for realism
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    if (!res.ok) throw new Error('Failed to place order')
 
-    // Optionally store the order locally
-    localStorage.setItem('lastOrder', JSON.stringify(orderData))
-    console.log('order', orderData)
     cart.clearCart()
     loading.value = false
   } catch (err) {

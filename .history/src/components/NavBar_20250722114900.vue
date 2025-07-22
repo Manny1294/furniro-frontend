@@ -17,10 +17,6 @@ const cartStore = useCartStore()
 
 //computed property to get the no. of items in the cart
 const cartCount = computed(() => cartStore.cartItems.length)
-
-function handleCartClick() {
-  console.log('🛒 Cart icon clicked!')
-}
 </script>
 
 <template>
@@ -43,8 +39,7 @@ function handleCartClick() {
         <div class="nav-icons">
           <i class="bi bi-person-exclamation"></i>
           <i class="bi bi-search"></i>
-
-          <router-link to="/cart" class="cart-icon-wrapper" @click="handleCartClick">
+          <router-link to="/cart" class="cart-icon-wrapper">
             <i class="bi bi-cart"></i>
             <!-- only show if greater than 0 -->
             <span class="cart-count-badge" v-if="cartCount > 0">{{ cartCount }}</span>
@@ -75,7 +70,7 @@ function handleCartClick() {
         <i class="bi bi-person-exclamation"></i>
         <i class="bi bi-search"></i>
         <i class="bi bi-heart"></i>
-        <router-link to="/cart" class="cart-icon-wrapper" @click="handleCartClick">
+        <router-link to="/cart" class="cart-icon-wrapper">
           <i class="bi bi-cart"></i>
 
           <!-- only show if greater than 0, :key retriggers the animation by re-rendering the badge each time the number changes -->

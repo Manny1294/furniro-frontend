@@ -6,7 +6,6 @@ import { BContainer } from 'bootstrap-vue-next'
 
 <template>
   <BContainer fluid class="p-0">
-    <!-- HEADER -->
     <div class="shop-header">
       <img src="@/assets/shop.jpg" alt="" class="img-fluid shop-image" />
       <h2 class="shop-text">Cart</h2>

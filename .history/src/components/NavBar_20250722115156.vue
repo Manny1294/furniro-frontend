@@ -44,11 +44,13 @@ function handleCartClick() {
           <i class="bi bi-person-exclamation"></i>
           <i class="bi bi-search"></i>
 
-          <router-link to="/cart" class="cart-icon-wrapper" @click="handleCartClick">
-            <i class="bi bi-cart"></i>
-            <!-- only show if greater than 0 -->
-            <span class="cart-count-badge" v-if="cartCount > 0">{{ cartCount }}</span>
-          </router-link>
+          <div @click="handleCartClick">
+            <router-link to="/cart" class="cart-icon-wrapper">
+              <i class="bi bi-cart"></i>
+              <!-- only show if greater than 0 -->
+              <span class="cart-count-badge" v-if="cartCount > 0">{{ cartCount }}</span>
+            </router-link>
+          </div>
         </div>
       </div>
 
@@ -75,7 +77,7 @@ function handleCartClick() {
         <i class="bi bi-person-exclamation"></i>
         <i class="bi bi-search"></i>
         <i class="bi bi-heart"></i>
-        <router-link to="/cart" class="cart-icon-wrapper" @click="handleCartClick">
+        <router-link to="/cart" class="cart-icon-wrapper">
           <i class="bi bi-cart"></i>
 
           <!-- only show if greater than 0, :key retriggers the animation by re-rendering the badge each time the number changes -->

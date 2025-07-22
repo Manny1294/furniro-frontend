@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router'
 import { useCartStore } from '@/stores/CartStore'
 import { BContainer } from 'bootstrap-vue-next'
 
-const loading = ref(true)
+const loading = ref(false)
 const cart = useCartStore()
 const router = useRouter()
 
@@ -43,7 +43,7 @@ onMounted(async () => {
     localStorage.setItem('lastOrder', JSON.stringify(orderData))
     console.log('order', orderData)
     cart.clearCart()
-    loading.value = false
+    loading.value = true
   } catch (err) {
     console.error('Order Error:', err)
     router.push('/cart') // Redirect to cart on failure

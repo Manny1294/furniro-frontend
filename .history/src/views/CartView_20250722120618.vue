@@ -19,7 +19,7 @@ import { BContainer } from 'bootstrap-vue-next'
       </nav>
     </div>
   </BContainer>
-  <CartSummary />
+  <!-- <CartSummary /> -->
   <FooterSection />
 </template>
 
