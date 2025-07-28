@@ -3,6 +3,7 @@ import {
   BContainer,
   BNavbar,
   BNavbarBrand,
+  BNavbarToggle,
   BCollapse,
   BNavbarNav,
   BNavItem,
@@ -38,6 +39,7 @@ const closeMenu = () => {
       <div class="d-flex">
         <!-- Left side: Hamburger + Brand -->
         <div class="toggle-brand">
+          <!-- <BNavbarToggle target="nav-collapse" /> -->
           <!-- Hamburger(only on mobile) -->
           <button class="hamburger-btn d-md-none" @click="openMenu">
             <i class="bi bi-list"></i>
@@ -52,11 +54,10 @@ const closeMenu = () => {
           </BNavbarBrand>
         </div>
 
-        <!-- Right Side:  Icons (mobile  only) -->
+        <!-- Right: Icons (mobile view) -->
         <div class="nav-icons">
           <i class="bi bi-person-exclamation"></i>
-          <i class="bi bi-heart"></i>
-          <!-- cart icon with  link to cart summary page -->
+          <i class="bi bi-search"></i>
           <router-link to="/cart" class="cart-icon-wrapper">
             <i class="bi bi-cart"></i>
             <!-- only show if greater than 0 -->
@@ -65,7 +66,7 @@ const closeMenu = () => {
         </div>
       </div>
 
-      <!-- Desktop nav-links -->
+      <!-- nav-links -->
       <BCollapse id="nav-collapse" is-nav class="mobile-overlay-collapse">
         <BNavbarNav class="justify-content-center w-100">
           <BNavItem>
@@ -99,24 +100,6 @@ const closeMenu = () => {
       </div>
     </BContainer>
   </BNavbar>
-
-  <!-- Full screen overlay (Mobile Menu) -->
-  <transition name="slide-overlay">
-    <div v-if="isMenuOpen" class="mobile-overlay">
-      <!-- Close Button  -->
-      <button class="close-btn" @click="closeMenu">
-        <i class="bi bi-arrow-left-short"></i>
-      </button>
-
-      <!-- Overlay Navigation Links (Mobile)-->
-      <nav class="overlay-nav-links">
-        <router-link to="/" class="overlay-link" @click="closeMenu">Home</router-link>
-        <router-link to="/shop" class="overlay-link" @click="closeMenu">Shop</router-link>
-        <router-link to="/about" class="overlay-link" @click="closeMenu">About</router-link>
-        <router-link to="/contact" class="overlay-link" @click="closeMenu">Contact</router-link>
-      </nav>
-    </div>
-  </transition>
 </template>
 
 <style scoped>
@@ -124,7 +107,6 @@ const closeMenu = () => {
   display: flex;
   gap: 10px;
   width: 100%;
-  align-items: center;
 }
 .brand-logo-link {
   display: flex;
@@ -196,122 +178,16 @@ const closeMenu = () => {
 .hamburger-btn {
   background: none;
   border: none;
-  font-size: 30px;
+  font-size: 66px;
   color: black;
   cursor: pointer;
 }
-/* OVERLAY MENU */
-.mobile-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-/* CLOSE  BUTTON */
-.close-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: black;
-  cursor: pointer;
-}
-
-/* LINKS IN OVERLAY */
-.overlay-nav-links {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  text-align: center;
-}
-
-.overlay-link {
-  text-decoration: none;
-  font-size: 20px;
-  color: black;
-  font-weight: bold;
-}
-.overlay-link:hover {
-  color: rgba(220, 170, 60, 1);
-}
-/* Slide-in transition for overlay */
-.slide-overlay-enter-active,
-.slide-overlay-leave-active {
-  transition: all 0.3s ease;
-}
-
-.slide-overlay-enter-from {
-  transform: translateX(-100%);
-  opacity: 0;
-}
-
-.slide-overlay-enter-to {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-.slide-overlay-leave-from {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-.slide-overlay-leave-to {
-  transform: translateX(-100%);
-  opacity: 0;
-}
-
-/* Animate each overlay link */
-.overlay-nav-links {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-top: 60px;
-  padding: 0 20px;
-}
-
-.overlay-link {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: slideFadeIn 0.4s ease forwards;
-}
-
-/* Individual delays for staggered effect */
-.overlay-link:nth-child(1) {
-  animation-delay: 0.3s;
-}
-.overlay-link:nth-child(2) {
-  animation-delay: 0.4s;
-}
-.overlay-link:nth-child(3) {
-  animation-delay: 0.5s;
-}
-.overlay-link:nth-child(4) {
-  animation-delay: 0.6s;
-}
-
-/* Keyframes */
-@keyframes slideFadeIn {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
 /* larger screen size */
+
 @media (min-width: 768px) {
   .nav-container {
     display: flex;
-    /* align-items: center; */
-    padding: 0%;
+    align-items: center;
   }
   .nav-icons {
     display: none;
@@ -319,7 +195,6 @@ const closeMenu = () => {
   .nav-icons-md {
     display: flex;
     gap: 20px;
-    align-items: center;
   }
 
   nav-icons-md i {

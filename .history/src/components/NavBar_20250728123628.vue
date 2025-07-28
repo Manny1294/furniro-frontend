@@ -3,6 +3,7 @@ import {
   BContainer,
   BNavbar,
   BNavbarBrand,
+  BNavbarToggle,
   BCollapse,
   BNavbarNav,
   BNavItem,
@@ -38,6 +39,8 @@ const closeMenu = () => {
       <div class="d-flex">
         <!-- Left side: Hamburger + Brand -->
         <div class="toggle-brand">
+          <!-- <BNavbarToggle target="nav-collapse" /> -->
+
           <!-- Hamburger(only on mobile) -->
           <button class="hamburger-btn d-md-none" @click="openMenu">
             <i class="bi bi-list"></i>
@@ -122,7 +125,7 @@ const closeMenu = () => {
 <style scoped>
 .toggle-brand {
   display: flex;
-  gap: 10px;
+  /* gap: 10px; */
   width: 100%;
   align-items: center;
 }
@@ -310,8 +313,7 @@ const closeMenu = () => {
 @media (min-width: 768px) {
   .nav-container {
     display: flex;
-    /* align-items: center; */
-    padding: 0%;
+    align-items: center;
   }
   .nav-icons {
     display: none;
@@ -319,7 +321,6 @@ const closeMenu = () => {
   .nav-icons-md {
     display: flex;
     gap: 20px;
-    align-items: center;
   }
 
   nav-icons-md i {

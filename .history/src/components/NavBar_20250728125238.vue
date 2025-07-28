@@ -3,6 +3,7 @@ import {
   BContainer,
   BNavbar,
   BNavbarBrand,
+  BNavbarToggle,
   BCollapse,
   BNavbarNav,
   BNavItem,
@@ -122,7 +123,7 @@ const closeMenu = () => {
 <style scoped>
 .toggle-brand {
   display: flex;
-  gap: 10px;
+  /* gap: 10px; */
   width: 100%;
   align-items: center;
 }

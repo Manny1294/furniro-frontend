@@ -3,6 +3,7 @@ import {
   BContainer,
   BNavbar,
   BNavbarBrand,
+  BNavbarToggle,
   BCollapse,
   BNavbarNav,
   BNavItem,
@@ -38,6 +39,8 @@ const closeMenu = () => {
       <div class="d-flex">
         <!-- Left side: Hamburger + Brand -->
         <div class="toggle-brand">
+          <!-- <BNavbarToggle target="nav-collapse" /> -->
+
           <!-- Hamburger(only on mobile) -->
           <button class="hamburger-btn d-md-none" @click="openMenu">
             <i class="bi bi-list"></i>
@@ -55,7 +58,7 @@ const closeMenu = () => {
         <!-- Right Side:  Icons (mobile  only) -->
         <div class="nav-icons">
           <i class="bi bi-person-exclamation"></i>
-          <i class="bi bi-heart"></i>
+          <!-- <i class="bi bi-search"></i> -->
           <!-- cart icon with  link to cart summary page -->
           <router-link to="/cart" class="cart-icon-wrapper">
             <i class="bi bi-cart"></i>
@@ -105,10 +108,10 @@ const closeMenu = () => {
     <div v-if="isMenuOpen" class="mobile-overlay">
       <!-- Close Button  -->
       <button class="close-btn" @click="closeMenu">
-        <i class="bi bi-arrow-left-short"></i>
+        <i class="bi bi-arrow-left"></i>
       </button>
 
-      <!-- Overlay Navigation Links (Mobile)-->
+      <!-- Overlay Navigation Links -->
       <nav class="overlay-nav-links">
         <router-link to="/" class="overlay-link" @click="closeMenu">Home</router-link>
         <router-link to="/shop" class="overlay-link" @click="closeMenu">Shop</router-link>
@@ -124,7 +127,6 @@ const closeMenu = () => {
   display: flex;
   gap: 10px;
   width: 100%;
-  align-items: center;
 }
 .brand-logo-link {
   display: flex;
@@ -214,7 +216,7 @@ const closeMenu = () => {
   align-items: center;
   justify-content: center;
 }
-/* CLOSE  BUTTON */
+/* CLOSE (X) BUTTON */
 .close-btn {
   position: absolute;
   top: 20px;
@@ -310,8 +312,7 @@ const closeMenu = () => {
 @media (min-width: 768px) {
   .nav-container {
     display: flex;
-    /* align-items: center; */
-    padding: 0%;
+    align-items: center;
   }
   .nav-icons {
     display: none;
@@ -319,7 +320,6 @@ const closeMenu = () => {
   .nav-icons-md {
     display: flex;
     gap: 20px;
-    align-items: center;
   }
 
   nav-icons-md i {
