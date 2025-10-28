@@ -1,0 +1,122 @@
+// // Import Pinia’s defineStore to create a store
+// import { defineStore } from 'pinia'
+// // Import Vue’s ref for reactive variables
+// import { ref } from 'vue'
+
+// import axios from 'axios'
+// // .env url
+// const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+
+// // Create a Pinia store named 'product'
+// export const useProductStore = defineStore('product', () => {
+//   // Store products as a reactive array
+//   const products = ref([])
+
+//   //single product
+//   const product = ref(null)
+
+//   // Track loading state (true when fetching, false when done)
+//   const loading = ref(false)
+
+//   // Fetch products from Fake Store API
+//   async function fetchProducts() {
+//     // Set loading to true before fetching
+//     loading.value = true
+//     try {
+//       // Make API request
+//       const response = await axios.get(`${API_BASE_URL}/products`) // fakeAPI
+//       const data = response.data
+//       // Map API data to match our model
+//       products.value = data.map((item) => ({
+//         id: item.id,
+//         title: item.title,
+//         description: item.description,
+//         price: item.price,
+//         category: item.category,
+//         image: item.image,
+//       }))
+//     } catch (error) {
+//       // Log any errors (e.g., network issues)
+//       console.error('Axios fetch error:', error)
+//     } finally {
+//       // Set loading to false after fetching (success or fail)
+//       loading.value = false
+//     }
+//   }
+
+//   // Fetch single product by id
+//   async function fetchProductById(id) {
+//     loading.value = true
+//     try {
+//       const response = await axios.get(`${API_BASE_URL}/products/${id}`)
+//       const item = response.data
+//       product.value = {
+//         id: item.id,
+//         title: item.title,
+//         description: item.description,
+//         price: item.price,
+//         category: item.category,
+//         image: item.image,
+//         rating: {
+//           rate: item.rating_rate,
+//           count: item.rating_count,
+//         },
+//       }
+//     } catch (err) {
+//       console.log('Axios fetch error:', err)
+//       product.value = null
+//     } finally {
+//       loading.value = false
+//     }
+//   }
+//   // Expose products, loading, and fetchProducts to components
+//   return { products, product, loading, fetchProducts, fetchProductById }
+// })
+
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
+import productsData from '@/data/StaticProducts.json'
+
+export const useProductStore = defineStore('product', () => {
+  const products = ref([])
+  const product = ref(null)
+  const loading = ref(false)
+
+  // Load all products from local JSON
+  async function fetchProducts() {
+    loading.value = true
+    try {
+      // Simulate delay (optional)
+      await new Promise((resolve) => setTimeout(resolve, 1000))
+      products.value = productsData
+    } catch (error) {
+      console.error('Failed to load local products:', error)
+    } finally {
+      loading.value = false
+    }
+  }
+
+  // Load a single product by ID
+  async function fetchProductById(id) {
+    loading.value = true
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 500))
+      product.value = productsData.find((p) => p.id === Number(id)) || null
+    } catch (err) {
+      console.error('Error fetching product by ID:', err)
+      product.value = null
+    } finally {
+      loading.value = false
+    }
+  }
+
+  // ✅ Hot module replacement for StaticProducts.json
+  if (import.meta.hot) {
+    import.meta.hot.accept('@/data/StaticProducts.json', (newModule) => {
+      console.log('StaticProducts.json updated — refreshing store data...')
+      products.value = newModule.default
+    })
+  }
+
+  return { products, product, loading, fetchProducts, fetchProductById }
+})
