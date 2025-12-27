@@ -67,7 +67,7 @@ npm run build
 - Admin dashboard for product management
 
 ## Backend Repository
-The backend for this project (Node.js/Express with PostgreSQL) is available in a separate repository
+The backend for this project (Node.js/Express with PostgreSQL) is available in a separate repository: https://github.com/Manny1294/furniro-backend
 
 ## Contributing
 This is a portfolio project, but feedback and suggestions are welcome!
